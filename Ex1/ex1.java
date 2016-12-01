@@ -1,5 +1,5 @@
-public class QSTLinkList 
-{
+public class QSTLinkList {
+	public static Node sb;
 	public static class Node{
 		public int value;
 		public Node next = null;
@@ -14,14 +14,25 @@ public class QSTLinkList
 			this.value = value;
 		}
 	}
+	
 	private static void printLinkList(Node head) {
+		if (head == null) {
+			return;
+		}
+		sb = head;
+		while (sb != null) {
+		System.out.print(sb.value + "-" + ">");
+		//String s = sb.value + "-" + ">";
+		sb = sb.next;
+		//System.out.print(s.substring(0, s.length()-2));
+		}
 	}
   
-  public static void main( String[] args ){
-    int[] arr = {1,3,5,7,2,4};
-    Node head = createLinkList(arr);
-    printLinkList(head);
-  }
+	public static void main( String[] args ){
+		int[] arr = {1,3,5,7,2,4};
+		Node head = createLinkList(arr);
+	    printLinkList(head);
+	}
 	private static Node createLinkList(int[] arr) {
 		// TODO Auto-generated method stub
 		Node[] linkArr = new Node[arr.length];
